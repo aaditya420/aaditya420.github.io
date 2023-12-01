@@ -6,38 +6,38 @@ repository: Git repository where your resume will be hosted, only required if yo
 version: 2
 
 # Personal info
-name: Your Name
-title: Your job title
-email: Your email (optional)
+name: Aaditya Verma
+title: SDE III - Innovation
+email: aadityaverma1998@gmail.com
 # email_title: Email (Email title override)
-phone: Your phone number (optional)
+# phone: Your phone number (optional)
 # phone_title: Phone (Phone title override)
-website: Your website (eg. https://google.com)(optional)
+website: https://aaditya420.github.io/
 # website_title: Web (Website title override)
 
 # Dark Mode (true/false/never)
 darkmode: false
 
 # Social links
-twitter_username: jekyllrb
-github_username:  jekyll
-stackoverflow_username: "00000001"
-dribbble_username: jekyll
-facebook_username: jekyll
-flickr_username: jekyll
-instagram_username: jekyll
-linkedin_username: jekyll
-xing_username: jekyll
-pinterest_username: jekyll
-youtube_username: jekyll
-orcid_username: 0000-0000-0000-0000
-googlescholar_username: D847cGsAAAAJ
+# twitter_username: jekyllrb
+github_username:  aaditya420
+# stackoverflow_username: "00000001"
+# dribbble_username: jekyll
+# facebook_username: jekyll
+# flickr_username: jekyll
+# instagram_username: jekyll
+linkedin_username: aadityaverma
+# xing_username: jekyll
+# pinterest_username: jekyll
+# youtube_username: jekyll
+# orcid_username: 0000-0000-0000-0000
+# googlescholar_username: D847cGsAAAAJ
 
 # Additional icon links
 additional_links:
-- title: Link name
-  icon: Font Awesome brand icon name (eg. fab fa-twitter) (https://fontawesome.com/icons?d=gallery&s=brands&m=free)
-  url: Link url (eg. https://google.com)
+- title: An automated approach to public distribution system using IoT (Research Paper)
+  icon: fab fa-solid fa-book
+  url: https://pdf.sciencedirectassets.com/280203/1-s2.0-S1877050918X00088/1-s2.0-S1877050918309128/main.pdf?X-Amz-Security-Token=IQoJb3JpZ2luX2VjELX%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJHMEUCICaDPdZLybo3WPmPpPLyOC5y2JWm37GKqaCWO5%2BlbnzhAiEAk9T2Ew9e2qwl5r1mUXcfPa5oEUL3LHFzibPlQBKk9MIqswUIHhAFGgwwNTkwMDM1NDY4NjUiDEfnyo0HOzmt8d5%2BQiqQBTc4uygI5unsXUh12nxHB7WQYhHkdxRCN1qFl6mds9KTv4tXbtpfX00l932pPBsPsSTX8YBWMUXhuJC9%2FkwevLnY4TifznY3J%2FXnUpx1ZCkYI%2FrB3KsY5r%2Fg8ARrW8zRXUl2WLZ7ZzX25pVYWTCfMk8aD2ccVZ%2BJfvTo8VLd1zqOSX6znNKEME8V3COdBruoYKw74ENqknxO%2F%2FAg4lt8ployhaqc0yU64x0sazIu06vDwGqSXiiloqrVX0POBSnGTDMrhzHllNu%2F9xm1Ar8TgJ7p4LKqo2rCW9uKteJv1i3lbZ9ohd3MxWtZDoL3sE7RY7huaEV9wugv0RyN3EDFCDz49BvA7YNucFmBIukTIcGKRRxw2Oon2sT%2B4QRqceY11Xo0L9TlEb8CAG4WmX2mw9LJkiW0sMw4dI9ZsISi%2FjKg4idUcXuz%2BUaj3pFio%2B1y%2Bm1jN32Q5LqeYHwP0kC9%2FTgPU51Qid20Ze0sFh8pQ%2FKGiltrJzgLB%2BuF4ByGyjvHqyUlgBMotJB%2BiM03H%2Fy3ByXFApUfuHaRtGyiNe3fo3uodkH3FdEC5YW9Q8gTLfmzHXT2DUNuFBAwduCsKsJvzhvt3GTLDBe%2ByhvjhJ5prRqSEKQC%2FmQn%2FaMpz2UUJ4PrGJwJQsQQm%2BKKNtwIdvOtyy0o5rr%2FZknDj6N3VdYbWqbvVlnAPdZkUjaYgfbTI7nC9B86a0Mq0GfPm%2FMy2ybCY%2FeeXqfWpSZgZoWPv0VhH9DzhvOokSG9ulQELqK%2BBAkTARUtXrdPGlrwI31aTwvwzVf3io2fdf1ML4kQ9j5RKH8qWP7siGUz55MPj4KpXomsqKz4L%2B14%2FHlwMa4OrxWihFFjaFOgeB4fI2NT4qF4m2WnMMuMqasGOrEBc2Wro5Xy0A%2Fc313sYkUGTd%2F28s9neJNWjh0LtMtEus6Wbvj0lvzVLqfag%2BHPQNWoeafhnC635mNMgAxJ8dMEiAUv%2Bacu%2BtDEI22Gwz9AAEa7Twy9CjATEhdfDLLgYmkuO4RkTUiDpdiRRNzPF7Bu1lPhHuH6TK7e2F7%2BUY8guBdzVwDIUqZtPXiuZrV3a8IzyH%2BYtsUIokr3w7KOo44vhhU3HFNcLSmm%2BkYLW4%2FjeG%2FO&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20231201T214258Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Credential=ASIAQ3PHCVTY3H3X6I45%2F20231201%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=70ae56907d2946889fbd554052c6ccf70040b14b84814e77673c7d9383cc9b73&hash=5e95d3d164d073843591341b50c62845a0cfceb3d48f3988751dbb53d6af3ea5&host=68042c943591013ac2b2430a89b270f6af2c76d8dfd086a07176afe7c76c2c61&pii=S1877050918309128&tid=spdf-ae93e4f4-7bea-402f-98e7-c447958f8d92&sid=63f10e068462e54fec8a09e2ff2bcc016f8egxrqb&type=client&tsoh=d3d3LnNjaWVuY2VkaXJlY3QuY29t&ua=0f01585d04015b5700&rr=82ee80c24bea072f&cc=in
 # - title: another link
 #   icon: font awesome brand icon name (eg. fab fa-twitter) (https://fontawesome.com/icons?d=gallery&s=brands&m=free)
 #   url: Link url (eg. https://google.com)
@@ -50,15 +50,18 @@ additional_links:
 
 # About Section
 # about_title: About Me (Use this to override about section title)
-about_profile_image: Directory of profile image (eg. images/profile.jpg)
-about_content: | # this will include new lines to allow paragraphs
-  Write an awesome description about yourself here, this supports markdown, so you can add [links](http://foobar.com) and highlight things <mark>like this</mark>.
+about_profile_image: images/profile.png
+# about_content: | # this will include new lines to allow paragraphs
+#   Write an awesome description about yourself here, this supports markdown, so you can add [links](http://foobar.com) and highlight things <mark>like this</mark>.
 
-  You can even add paragraphs by using empty lines like this and add anything else [markdown](https://www.markdownguide.org/getting-started#what-is-markdown) supports such as
-    - Lists
-    - Tables
-    - <a href="google.com">Links</a>
-    - Images ![alt text](/images/landscape-trees.jpg "Trees")
+#   You can even add paragraphs by using empty lines like this and add anything else [markdown](https://www.markdownguide.org/getting-started#what-is-markdown) supports such as
+#     - Lists
+#     - Tables
+#     - <a href="google.com">Links</a>
+#     - Images ![alt text](/images/landscape-trees.jpg "Trees")
+
+about_content: |
+    Hi I am Aaditya a passionate and talented Full Stack Engineer.
 
 content:
   - title: Projects # Title for the section
@@ -137,4 +140,5 @@ exclude : [
   "lib/",
   "scripts/",
   "docker-compose.yml",
+  ".DS_Store/"
   ]
