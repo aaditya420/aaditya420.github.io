@@ -7,10 +7,10 @@ version: 2
 
 # Personal info
 name: Aaditya Verma
-title: SDE III - Innovation
+title: SDE III - Innovation, Fidelity International
 email: aadityaverma1998@gmail.com
 # email_title: Email (Email title override)
-# phone: Your phone number (optional)
+phone: +91 9582906389
 # phone_title: Phone (Phone title override)
 website: https://aaditya420.github.io/
 # website_title: Web (Website title override)
@@ -20,7 +20,7 @@ darkmode: false
 
 # Social links
 # twitter_username: jekyllrb
-github_username:  aaditya420
+github_username: aaditya420
 # stackoverflow_username: "00000001"
 # dribbble_username: jekyll
 # facebook_username: jekyll
@@ -51,130 +51,182 @@ additional_links:
 # About Section
 # about_title: About Me (Use this to override about section title)
 about_profile_image: images/profile.png
-# about_content: | # this will include new lines to allow paragraphs
-#   Write an awesome description about yourself here, this supports markdown, so you can add [links](http://foobar.com) and highlight things <mark>like this</mark>.
-
-#   You can even add paragraphs by using empty lines like this and add anything else [markdown](https://www.markdownguide.org/getting-started#what-is-markdown) supports such as
-#     - Lists
-#     - Tables
-#     - <a href="google.com">Links</a>
-#     - Images ![alt text](/images/landscape-trees.jpg "Trees")
-
 about_content: |
-    As a seasoned software engineer with a deep-seated passion for full-stack development and automation, I have honed my expertise across diverse technological domains, including cloud development, DevOps, and Infrastructure as Code (IaC). With a keen focus on innovative solutions, I remain committed to continuous learning to stay abreast of industry trends and technological advancements. I pride myself on being able to articulate complex ideas in simple terms and seamlessly collaborate with cross-functional teams to achieve collective goals.
+    Experienced Software Engineer specializing in Generative AI and Large Language Models (LLMs), with a strong background in full-stack development, automation, and data management. Proven track record in driving AI innovation and implementing advanced AI solutions to enhance organizational growth. Adept at leading cross-functional teams and delivering complex projects on time.
 
 content:
   - title: Projects
     layout: list
     content:
       - layout: left
-        title: Generative AI Advocacy
+        title: GAI based application for RRT Operations
         description: | 
-          Lead initiatives to promote the understanding and application of Generative AI technologies, including ChatGPT and Large Language Models, across business functions.
+          Implemented GAI based application into production for RRT Operations team end to end using Terraform, AWS, React stack. Reduced workload by 75% enabling them to serve multiple advisors.
 
       - layout: left
-        title: Long Service Awards (LSA) Kiosk Development & Promotion
+        title: FILBrowserGPT
         description: | 
-          Engineered and maintained an interactive kiosk to showcase Long Service Awards through AI-driven image visualization of audio content.
+          Implemented first ever chrome based extension FILBrowserGPT to production enabling use of organization GPT solution on web browsers. Potential savings of up to 2000 hours every week.
 
       - layout: left
-        title: Named Entity Recognition (NER) API with GPT-4
+        title: GAI based solution for Client Services
         description: | 
-          Developed a Named Entity Recognition API utilizing the advanced capabilities of GPT-4 to streamline data extraction processes.
+          Implemented GAI based solution for Client Services team to analyze call transcripts on various Fidelity based frameworks and guidelines. Potential savings of $784k annually.
 
       - layout: left
-        title: FIL Datafest 2022 - Chart Repository Integration
+        title: RRT GPT solution for Operations
         description: | 
-          Collaboratively built a comprehensive chart repository for PowerPoint integration, enhancing data visualization and accessibility.
+          Secured first position in the Improve-a-thon internal hackathon event, implementing RRT GPT solution for Operations team within time bound limits. Used internal GAI solution for analyzing and transforming manual notes to timeline based summary.
 
       - layout: left
-        title: Knowledge Graph Implementation for Organizational Entities
+        title: Inner Source AWS modules
         description: | 
-          Created a pivotal Knowledge Graph using Neo4j to connote organizational entities and improve data connectivity.
+          Contributed in fixing critical bugs on Inner Source AWS modules.
 
       - layout: left
-        title: AWS Infrastructure for Knowledge Graph
+        title: FILxGPT
         description: | 
-          Leveraged Terraform for building AWS infrastructure to support innovative Inner Source Modules and optimize Knowledge Graph implementations.
+          Responsible for development of FILxGPT an internal GPT solution for Fidelity. Potential savings of 2000+ hours daily for FIL Employees and Developers.
 
       - layout: left
-        title: Virtual Reality Presentations at Fidelity Hackathon
+        title: GAI based application for Client Services
         description: | 
-          Contributed to the immersive presentation experience for the Fidelity Hackathon using VR technology, facilitating engaging and dynamic event environments.
+          Implemented GAI based application to Production for Client Services team, enabling them to respond to Client’s Secure Messages with the help of GAI. Saving 50% of their time collating and preparing the responses.
 
       - layout: left
-        title: Corporate Action Extraction Automation
+        title: GAI based application for PI Clients
         description: | 
-          Led an automation project focused on extracting corporate actions from PDFs to simplify data aggregation.
+          Developed GAI based application for PI Clients, enabling the clients to be able to chat on their portfolio data.
 
       - layout: left
-        title: Fidelity Hackathon 2022 Organization
+        title: Knowledge Graph for CoSec team
         description: | 
-          Actively participated in the core committee for Fidelity Hackathon 2022, overseeing the planning and execution to ensure a flawless event.
+          Implemented Knowledge Graph based solution to MVP for CoSec team, enabling collation of Legal Entity data and efficient querying on top of it using AWS Neptune for Graph Database, Terraform for IaC, Python for the backend and React for UI.
 
       - layout: left
-        title: Play to Earn - Blockchain-Based Reward System
+        title: Fine tuning open source LLM models
         description: | 
-          Conceptualized and developed a blockchain-based internal reward system, gaining valuable experience in React frontend development and smart contract APIs.
+          Implemented and Researched on fine tuning open source LLM models with specific dataset. Tuned Falcon 7B model with Fintech data for comparing offerings across the board and how FIL can improve their own.
 
       - layout: left
-        title: Advanced Database Optimization
+        title: Speech-to-Image application
         description: | 
-          Introduced sophisticated PL/SQL solutions and database optimizations to improve data processing and system performance.
+          Developed a Speech-to-Image application for showcasing GAI use cases in Long Services Awards event using Whisper and Stable Diffusion models.
 
       - layout: left
-        title: Continuous Integration and Deployment Automation
+        title: Knowledge Graph for IVR
         description: | 
-          Established automated CI/CD pipelines using tools such as BitBucket, Bamboo, and UrbanDeploy, fostering rapid software development and reliable releases.
+          Implemented first ever Knowledge Graph based application to MVP for retrieving most relevant search results for the clients speaking over IVR on their fund data queries. Utilized AWS Neptune in LPD configuration and Terraform for Iac. Potential savings of over $140k annually.
 
       - layout: left
-        title: Cryptocurrency Trading Platform Development
+        title: Automation for Fund Data Management
         description: | 
-          Engaged in the development of a robust cryptocurrency trading platform, addressing complex data migration and web scraping challenges.
+          Implemented automation for the Fund Data Management team on the Corporate Actions workflow. Utilizing spaCy to train NER models and extract entity based data from PDF files. Potential savings of $120k annually.
 
       - layout: left
-        title: Python Module for Port Scanning Automation
+        title: Charts Repository
         description: | 
-          Devised a Python scanning module for enhanced server security, serving as a proactive firewall with real-time breach logging and reporting.
+          Achieved first position in Data Games, internal hackathon event, developing a Charts Repository for the Research team saving them 20% time in creating and retrieving various market research charts data.
+
+      - layout: left
+        title: Blockchain based rewards application
+        description: | 
+          Implemented blockchain based rewards application for FIL internal employees using ERC-20 protocol.
+
+      - layout: left
+        title: FIODE database
+        description: | 
+          Responsible for development and maintenance of FIODE database. Implemented and Updated PL/SQL procedures, improving data loading speeds by 20%.
+
+      - layout: left
+        title: Automated data flow
+        description: | 
+          Automated data flow using python scripts & Control-M jobs, saving 50% in manual efforts.
+
+      - layout: left
+        title: Fund Launches and Data Migration
+        description: | 
+          Supported critical implementations for Fund Launches and Data Migration activities.
+
+      - layout: left
+        title: Insights application for Central European marketing team
+        description: | 
+          Implemented Insights application for Central European marketing team. Collating live news and sentiment data across various platforms like Twitter, Ignites Europe, etc., on Fidelity competitors. Enabling the marketing team to make critical decisions based on the insights.
+
+      - layout: left
+        title: LinkedIN based Insights tool
+        description: | 
+          Implemented LinkedIN based Insights tool for the HR team, enabling them to visualize the influx and outflux of employees. Potential savings in the form of competitive advantage.
+
+      - layout: left
+        title: Network Scanning tool
+        description: | 
+          Responsible for implementing a Network Scanning tool using Django framework, scanning across 650k ports to check for unauthorized access.
+
+      - layout: left
+        title: Reporting framework using MongoDB
+        description: | 
+          Implemented reporting framework using MongoDB for auto scanning and storage of reports and alerts.
 
   - title: Experience
     layout: list
     content:
       - layout: right
         title: Fidelity International
-        sub_title: Analyst Programmer
-        caption: Nov 2022 - Present
+        sub_title: Senior Analyst Programmer
+        caption: Aug 2023 - Present
         description: | 
-          Demonstrating excellence in driving innovation at Fidelity, I embarked on pioneering advocacy for Generative AI, shaping a deep understanding of ChatGPT and LLMs. I’ve been instrumental in illustrating the art of prompt engineering and conceptualizing the Long Service Awards Kiosk, beautified with AI-generated visual content.
+          Implemented GAI based application into production for RRT Operations team end to end using Terraform, AWS, React stack. Reduced workload by 75% enabling them to serve multiple advisors. Implemented first ever chrome based extension FILBrowserGPT to production enabling use of organization GPT solution on web browsers. Potential savings of up to 2000 hours every week. Implemented GAI based solution for Client Services team to analyze call transcripts on various Fidelity based frameworks and guidelines. Potential savings of $784k annually. Secured first position in the Improve-a-thon internal hackathon event, implementing RRT GPT solution for Operations team within time bound limits. Used internal GAI solution for analyzing and transforming manual notes to timeline based summary. Contributed in fixing critical bugs on Inner Source AWS modules.
+
+      - layout: right
+        title: Fidelity International
+        sub_title: Analyst Programmer
+        caption: Aug 2022 - July 2023
+        description: | 
+          Responsible for development of FILxGPT an internal GPT solution for Fidelity. Potential savings of 2000+ hours daily for FIL Employees and Developers. Implemented GAI based application to Production for Client Services team, enabling them to respond to Client’s Secure Messages with the help of GAI. Saving 50% of their time collating and preparing the responses. Developed GAI based application for PI Clients, enabling the clients to be able to chat on their portfolio data. Implemented Knowledge Graph based solution to MVP for CoSec team, enabling collation of Legal Entity data and efficient querying on top of it using AWS Neptune for Graph Database, Terraform for IaC, Python for the backend and React for UI. Implemented and Researched on fine tuning open source LLM models with specific dataset. Tuned Falcon 7B model with Fintech data for comparing offerings across the board and how FIL can improve their own. Developed a Speech-to-Image application for showcasing GAI use cases in Long Services Awards event using Whisper and Stable Diffusion models.
 
       - layout: right
         title: Fidelity International
         sub_title: Programmer
-        caption: Aug 2021 - Nov 2022
+        caption: Aug 2021 - July 2022
         description: | 
-          At the FIL Datafest 2022, my collaboration with the Research team yielded a sophisticated chart repository elevating PPT integration. My foray into AI saw the development of a state-of-the-art Knowledge Graph for General Counsel, harnessing Neo4j graphs seeded in Unix servers, and a dynamic AWS Infrastructure via Terraform.
+          Implemented first ever Knowledge Graph based application to MVP for retrieving most relevant search results for the clients speaking over IVR on their fund data queries. Utilized AWS Neptune in LPD configuration and Terraform for Iac. Potential savings of over $140k annually. Implemented automation for the Fund Data Management team on the Corporate Actions workflow. Utilizing spaCy to train NER models and extract entity based data from PDF files. Potential savings of $120k annually. Achieved first position in Data Games, internal hackathon event, developing a Charts Repository for the Research team saving them 20% time in creating and retrieving various market research charts data. Implemented blockchain based rewards application for FIL internal employees using ERC-20 protocol.
 
       - layout: right
         title: Fidelity International
         sub_title: Graduate Programmer
-        caption: Jul 2020 - Oct 2021
+        caption: Aug 2020 - July 2021
         description: | 
-          My role as a Graduate Programmer saw me augmenting database operations with advanced PL/SQL and architecting reliable batch job scheduling mechanisms through Control-M and Unix Shell Scripting, significantly advancing operational efficiency.
+          Responsible for development and maintenance of FIODE database. Implemented and Updated PL/SQL procedures, improving data loading speeds by 20%. Automated data flow using python scripts & Control-M jobs, saving 50% in manual efforts. Supported critical implementations for Fund Launches and Data Migration activities. Implemented Insights application for Central European marketing team. Collating live news and sentiment data across various platforms like Twitter, Ignites Europe, etc., on Fidelity competitors. Enabling the marketing team to make critical decisions based on the insights. Implemented LinkedIN based Insights tool for the HR team, enabling them to visualize the influx and outflux of employees. Potential savings in the form of competitive advantage.
+
+      - layout: right
+        title: RankWatch Inc.
+        sub_title: Software Developer Intern
+        caption: May 2019 - July 2019
+        description: | 
+          Responsible for implementing a Network Scanning tool using Django framework, scanning across 650k ports to check for unauthorized access. Implemented reporting framework using MongoDB for auto scanning and storage of reports and alerts.
 
   - title: Education
-    layout: list
-    content:
-      - layout: top-right
-        title: The NorthCap University
-        sub_title: Bachelor of Technology, Computer Science
-        caption: 2016 - 2020
-        description: | 
-          My academic journey at The NorthCap University was marked by an in-depth exploration of computer science principles, arming me with the knowledge and practical experience to excel in the ever-evolving tech industry.
-
-  - title: Technical Skills
     layout: text
     content: |
-      I possess a proven proficiency in a variety of technical disciplines including Knowledge Graphs, Neo4j, AWS ecosystem (AWS Lambda, AWS Neptune, Amazon EC2), Terraform, and full-stack development with React.js, Node.js, and Express.js.
+      **The NorthCap University**  
+      Bachelors in Technology Computer Science, July 2020
+      - Secured third place in Smart India Hackathon 2019. Developed messaging solution for HUL Goods Delivery pipeline.
+      - Part of Dean’s List for three consecutive years (9.5+CGPA).
+      - Published Research paper under Elseviers publication identifying Automated approach to India’s PDS.
+
+  - title: Skills
+    layout: list
+    content:
+      - layout: left
+        title: Programming Languages
+        description: |
+          Terraform, AWS, Python, Django, ReactJS, Solidity, SQL, PLSQL
+
+      - layout: left
+        title: Tools & Technologies
+        description: |
+          GAI, Jenkins, Git, Github Actions, Knowledge Graph, Docker, Kubernetes, Snowflake, MongoDB
 
 # Footer
 footer_show_references: true
