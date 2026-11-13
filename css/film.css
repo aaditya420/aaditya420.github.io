@@ -96,7 +96,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .dot { display: inline-block; width: .21em; height: .21em; margin-left: .05em; border-radius: 50%; background: var(--persimmon); }
 .year, .num { display: flex; align-items: flex-start; font-variant-numeric: tabular-nums; }
 .plus, .pct, .minus { font-style: normal; color: var(--ac); }
-.role { min-height: 1.8em; max-width: 100%; }
+.role { min-height: 1.76em; max-width: 100%; }
 .freya { line-height: .8; padding-bottom: .12em; margin-left: -.04em; color: var(--fg); }
 
 .odo { display: inline-flex; height: 1em; line-height: 1; overflow: hidden; }
@@ -105,9 +105,11 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 
 .proj { display: grid; gap: 2px; padding: 4px 0; transition: translate .35s cubic-bezier(.2, .8, .2, 1); }
 .proj .shout { transition: color .25s; }
-.proj:hover { translate: 18px 0; }
-.proj:hover .shout { color: var(--ac); }
-.proj .tagline::after { content: " ↗"; font-style: normal; }
+.proj.link:hover { translate: 18px 0; }
+.proj.link:hover .shout { color: var(--ac); }
+.proj.link .tagline::after { content: " ↗"; font-style: normal; }
+.stackline { font: normal 700 clamp(.95rem, 1.5vw, 1.5rem)/1.2 "Anybody", sans-serif; font-stretch: 105%; text-transform: uppercase; letter-spacing: .01em; color: var(--ac); min-height: 2.4em; }
+.team { line-height: .95; }
 
 /* skills reel: rows slide against each other as you scroll */
 .reel { position: absolute; inset: 0; display: grid; align-content: center; gap: clamp(4px, 1.4vh, 16px); transform: rotate(-6deg) scale(1.08); }
@@ -156,6 +158,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .whisper { font-size: calc(min(var(--fs, 1), 1.6) * 7.2vw); }
   .whisper.freya, .whisper.tc-role { font-size: calc(var(--fsm, 1) * 11vw); }
   .tagline { font-size: 5vw; }
+  .stackline { font-size: 3.7vw; }
   .copy { top: auto; bottom: clamp(92px, 13vh, 130px); width: calc(100vw - 2 * var(--pad)); transform: translateY(calc(var(--x) * -9vh)); }
   .end { bottom: clamp(92px, 13vh, 130px); width: auto; transform: none; }
   .reel-row { font-size: 8.4vh; }

@@ -12,7 +12,7 @@
   const coarse = matchMedia('(pointer: coarse)').matches;
   const small = coarse || innerWidth < 820;
   const calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const SPEED = 0.38;          // scenes per second on autoplay
+  const SPEED = 0.4;           // scenes per second on autoplay
   const PRE = 0.22, POST = 0.3; // a scene's wipe starts PRE before its slot and ends POST into it
 
   /* ---------- split text into words or characters ---------- */
@@ -39,7 +39,7 @@
 
   /* ---------- rolling-digit counters ---------- */
   function odometer(el) {
-    const [from, to] = el.dataset.odo.split(',').map(Number), digits = String(Math.max(from, to)).length, sep = el.hasAttribute('data-sep');
+    const [from, to] = el.dataset.odo.split(',').map(Number), digits = String(Math.max(from, to)).length, sep = el.hasAttribute('data-sep'), step = el.hasAttribute('data-step');
     el.classList.add('odo'); const cols = [];
     for (let k = digits - 1; k >= 0; k--) {
       const col = document.createElement('span'); col.className = 'col'; col.setAttribute('aria-hidden', 'true');
@@ -48,7 +48,8 @@
       if (sep && k === 3) { const c = document.createElement('span'); c.textContent = ','; c.setAttribute('aria-hidden', 'true'); el.appendChild(c); }
     }
     return (t) => {
-      const v = from + (to - from) * t;
+      let v = from + (to - from) * t;
+      if (step) { const b = Math.floor(v); v = b + io(v - b); } // rest on each whole number
       for (let k = 0; k < digits; k++) {
         const unit = Math.pow(10, k), f = v / unit, base = Math.floor(f + 1e-9), frac = f - base;
         const roll = k === 0 ? frac : clamp((frac - (1 - 1 / unit)) * unit, 0, 1);
@@ -60,13 +61,14 @@
   /* ---------- role title that decodes itself as the year rolls ---------- */
   function roles(el) {
     const list = el.dataset.roles.split('|').map((s) => { const i = s.indexOf(':'); return [+s.slice(0, i), s.slice(i + 1)]; });
-    const first = list[0][0], span = list[list.length - 1][0] - first, GL = 'ABCDEFGHJKLMNPQRSTUVWXYZ#/<>*+=';
+    const first = list[0][0], span = list[list.length - 1][0] - first;
+    const GL = el.classList.contains('whisper') ? 'abcdefghijkmnopqrstuvwxyz' : 'ABCDEFGHJKLMNPQRSTUVWXYZ#/<>*+=';
     let last = '';
     return (t) => {
       const year = first + span * clamp(t / .86); let k = 0;
       for (let i = 0; i < list.length; i++) if (year >= list[i][0] - .001) k = i;
       const word = list[k][1], tick = Math.floor(t * 210);
-      const local = k === 0 ? 1 : k === list.length - 1 ? clamp((t - .86) / .12) : clamp((year - list[k][0]) / .42);
+      const local = k === 0 ? 1 : k === list.length - 1 ? clamp((t - .86) / .12) : clamp((year - list[k][0]) / .3);
       let s = '';
       for (let i = 0; i < word.length; i++) {
         if (word[i] === ' ' || i < local * word.length) s += word[i];
@@ -83,6 +85,7 @@
       el, i, dur: +el.dataset.dur, start: acc, wipe: el.dataset.wipe, origin: el.dataset.origin, shape: el.dataset.shape,
       col: COL[el.dataset.ink], acc: COL[el.dataset.accent], place: el.dataset.place, spin: +(el.dataset.spin || 0),
       ui: UI[Array.from(el.classList).find((c) => UI[c])], live: false, clip: '', center: null,
+      stops: (el.dataset.stops || '').split('|').filter(Boolean).map((x) => { const k = x.split(':'); return [+k[0], k[1]]; }),
       items: $$('[data-a]', el).map((n) => {
         const [a, b] = n.dataset.a.split(',').map(Number);
         const it = { el: n, a, b, lin: n.hasAttribute('data-lin'), last: -1, run: null, mark: n.classList.contains('mark') };
@@ -94,6 +97,9 @@
   });
   const lastScene = scenes[scenes.length - 1];
   const maxProg = acc - 0.55;
+  // every moment the cloud changes shape: scene starts, plus stops inside a scene
+  const keys = [];
+  scenes.forEach((s) => { keys.push({ at: s.start, shape: s.shape, s, w: [.34, .3] }); s.stops.forEach((st) => keys.push({ at: s.start + st[0] * s.dur, shape: st[1], s, w: [.15, .15] })); });
 
   /* ---------- wipes: how each scene cuts in over the one before it ---------- */
   function wipe(s, w, W, H) {
@@ -201,19 +207,20 @@
 
     // the cloud: which two shapes, and how far between them
     if (cloud) {
-      let a = scenes[0], b = scenes[0], m = 0;
-      for (const s of scenes) if (prog >= s.start) a = b = s;
-      for (let j = 1; j < scenes.length; j++) {
-        const st = scenes[j].start;
-        if (prog > st - .34 && prog < st + .3) { a = scenes[j - 1]; b = scenes[j]; m = (prog - (st - .34)) / .64; break; }
+      let ka = keys[0], kb = keys[0], m = 0;
+      for (const k of keys) if (prog >= k.at) ka = kb = k;
+      for (let j = 1; j < keys.length; j++) {
+        const k = keys[j];
+        if (prog > k.at - k.w[0] && prog < k.at + k.w[1]) { ka = keys[j - 1]; kb = k; m = (prog - (k.at - k.w[0])) / (k.w[0] + k.w[1]); break; }
       }
+      const a = ka.s, b = kb.s;
       const aspect = W / H, e = io(m), pa = place(a.place, aspect), pb = place(b.place, aspect);
       const text = (s) => s.place === 'name' || s.place === 'top';
       const ry = (s) => (text(s) ? 0 : s.spin * ((prog - s.start) / s.dur - .5));
       const sway = lerp(text(a) ? .35 : 1, text(b) ? .35 : 1, e);
       ptr.sx += ((ptr.on ? ptr.x : 0) - ptr.sx) * .06; ptr.sy += ((ptr.on ? ptr.y : 0) - ptr.sy) * .06;
       cloud.draw({
-        from: a.shape, to: b.shape, mix: m, time: calm ? 0 : time, chaos: .85,
+        from: ka.shape, to: kb.shape, mix: m, time: calm ? 0 : time, chaos: .85,
         off: [lerp(pa.off[0], pb.off[0], e), lerp(pa.off[1], pb.off[1], e)], scale: lerp(pa.scale, pb.scale, e),
         ry: lerp(ry(a), ry(b), e) + sway * ((calm ? 0 : Math.sin(time * .5) * .16) + ptr.sx * .35),
         rx: sway * ((calm ? 0 : Math.sin(time * .37) * .07) - ptr.sy * .22),
