@@ -49,7 +49,7 @@
     }
     return (t) => {
       let v = from + (to - from) * t;
-      if (step) { const b = Math.floor(v); v = b + io(v - b); } // rest on each whole number
+      if (step) { const b = Math.floor(v + 1e-9); v = b + io(clamp((v - b - .7) / .3)); } // rest on each whole number, roll in the last 30%
       for (let k = 0; k < digits; k++) {
         const unit = Math.pow(10, k), f = v / unit, base = Math.floor(f + 1e-9), frac = f - base;
         const roll = k === 0 ? frac : clamp((frac - (1 - 1 / unit)) * unit, 0, 1);
@@ -65,10 +65,11 @@
     const GL = el.classList.contains('whisper') ? 'abcdefghijkmnopqrstuvwxyz' : 'ABCDEFGHJKLMNPQRSTUVWXYZ#/<>*+=';
     let last = '';
     return (t) => {
-      const year = first + span * clamp(t / .86); let k = 0;
-      for (let i = 0; i < list.length; i++) if (year >= list[i][0] - .001) k = i;
+      // the text starts changing as the year digit starts to roll (the last 30% of a year) and settles just after it lands
+      const year = first + span * t / .86; let k = 0;
+      for (let i = 0; i < list.length; i++) if (year >= list[i][0] - .3) k = i;
       const word = list[k][1], tick = Math.floor(t * 210);
-      const local = k === 0 ? 1 : k === list.length - 1 ? clamp((t - .86) / .12) : clamp((year - list[k][0]) / .3);
+      const local = k === 0 ? 1 : clamp((year - (list[k][0] - .3)) / .42);
       let s = '';
       for (let i = 0; i < word.length; i++) {
         if (word[i] === ' ' || i < local * word.length) s += word[i];
@@ -84,7 +85,7 @@
     const s = {
       el, i, dur: +el.dataset.dur, start: acc, wipe: el.dataset.wipe, origin: el.dataset.origin, shape: el.dataset.shape,
       col: COL[el.dataset.ink], acc: COL[el.dataset.accent], place: el.dataset.place, spin: +(el.dataset.spin || 0),
-      ui: UI[Array.from(el.classList).find((c) => UI[c])], live: false, clip: '', center: null,
+      ui: UI[Array.from(el.classList).find((c) => UI[c])], live: false, clip: '', center: null, block: $('.copy, .title-card', el), top: 0,
       stops: (el.dataset.stops || '').split('|').filter(Boolean).map((x) => { const k = x.split(':'); return [+k[0], k[1]]; }),
       items: $$('[data-a]', el).map((n) => {
         const [a, b] = n.dataset.a.split(',').map(Number);
@@ -130,8 +131,15 @@
 
   /* ---------- where the cloud sits in each kind of scene ---------- */
   let nameHalf = 3.5;
-  function place(kind, aspect) {
-    const wide = aspect > 1;
+  function place(s, aspect, W, H) {
+    const wide = aspect > 1, kind = s.place;
+    if (!wide && kind !== 'center' && s.top > 0) {
+      // portrait: fit the shape into the free band between the top bar and the words, so they never overlap
+      const bandTop = 62, h = Math.max(40, s.top - bandTop - 14);
+      const base = kind === 'name' ? .9 / nameHalf : kind === 'top' ? .52 : .6;
+      const scale = Math.max(base * .4, Math.min(base, h / W * .94));
+      return { off: [0, 1 - 2 * (bandTop + h / 2) / H], scale };
+    }
     if (kind === 'name') return { off: [0, wide ? .16 : .24], scale: (wide ? .86 * aspect : .9) / nameHalf, spin: 0 };
     if (kind === 'top') return wide ? { off: [0, .42], scale: .4 } : { off: [0, .46], scale: .52 };
     if (kind === 'center') return { off: [0, 0], scale: wide ? .78 : .8 };
@@ -188,6 +196,10 @@
         if (clip !== s.clip) { s.clip = clip; s.el.style.clipPath = clip; s.el.style.webkitClipPath = clip; }
         if (w > .5) front = s;
       }
+      if (s.block && W / H <= 1) { // where the words start, smoothed so the shape glides instead of jumping
+        const top = s.block.getBoundingClientRect().top + (s === lastScene ? 0 : parseFloat(s.el.style.getPropertyValue('--x') || 0) * H * .09);
+        s.top = s.top ? s.top + (top - s.top) * .12 : top;
+      } else s.top = 0;
       for (const it of s.items) {
         let t = clamp((p - it.a) / (it.b - it.a)); if (!it.lin) t = out3(t);
         if (t > .9985) t = 1; else if (t < .0015) t = 0;
@@ -214,13 +226,13 @@
         if (prog > k.at - k.w[0] && prog < k.at + k.w[1]) { ka = keys[j - 1]; kb = k; m = (prog - (k.at - k.w[0])) / (k.w[0] + k.w[1]); break; }
       }
       const a = ka.s, b = kb.s;
-      const aspect = W / H, e = io(m), pa = place(a.place, aspect), pb = place(b.place, aspect);
+      const aspect = W / H, e = io(m), pa = place(a, aspect, W, H), pb = place(b, aspect, W, H);
       const text = (s) => s.place === 'name' || s.place === 'top';
       const ry = (s) => (text(s) ? 0 : s.spin * ((prog - s.start) / s.dur - .5));
       const sway = lerp(text(a) ? .35 : 1, text(b) ? .35 : 1, e);
       ptr.sx += ((ptr.on ? ptr.x : 0) - ptr.sx) * .06; ptr.sy += ((ptr.on ? ptr.y : 0) - ptr.sy) * .06;
       cloud.draw({
-        from: ka.shape, to: kb.shape, mix: m, time: calm ? 0 : time, chaos: .85,
+        from: ka.shape, to: kb.shape, mix: m, time: calm ? 0 : time, chaos: kb.w[0] < .2 ? .4 : .85,
         off: [lerp(pa.off[0], pb.off[0], e), lerp(pa.off[1], pb.off[1], e)], scale: lerp(pa.scale, pb.scale, e),
         ry: lerp(ry(a), ry(b), e) + sway * ((calm ? 0 : Math.sin(time * .5) * .16) + ptr.sx * .35),
         rx: sway * ((calm ? 0 : Math.sin(time * .37) * .07) - ptr.sy * .22),

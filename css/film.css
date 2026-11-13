@@ -154,11 +154,12 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 
 /* ---------- portrait / phones: shape on top, words below ---------- */
 @media (max-aspect-ratio: 1/1), (max-width: 760px) {
-  .shout { font-size: calc(var(--fsm, var(--fs, 1)) * 13.6vw); }
-  .whisper { font-size: calc(min(var(--fs, 1), 1.6) * 7.2vw); }
-  .whisper.freya, .whisper.tc-role { font-size: calc(var(--fsm, 1) * 11vw); }
-  .tagline { font-size: 5vw; }
-  .stackline { font-size: 3.7vw; }
+  .shout { font-size: calc(var(--fsm, var(--fs, 1)) * min(13.6vw, 7.6vh)); }
+  .whisper { font-size: calc(min(var(--fs, 1), 1.6) * min(7.2vw, 4.1vh)); }
+  .whisper.freya, .whisper.tc-role { font-size: calc(var(--fsm, 1) * min(11vw, 6.2vh)); }
+  .tagline { font-size: min(5vw, 2.9vh); }
+  .stackline { font-size: min(3.7vw, 2.2vh); min-height: 1.3em; }
+  .copy { gap: clamp(6px, 1.1vh, 14px); }
   .copy { top: auto; bottom: clamp(92px, 13vh, 130px); width: calc(100vw - 2 * var(--pad)); transform: translateY(calc(var(--x) * -9vh)); }
   .end { bottom: clamp(92px, 13vh, 130px); width: auto; transform: none; }
   .reel-row { font-size: 8.4vh; }
