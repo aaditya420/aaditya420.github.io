@@ -163,6 +163,45 @@ AV.createCloud = function (canvas, N) {
       rows.forEach((r, i) => { rr(x, -.94 + r[0] * 1.88, .72 - i * .24, Math.max(.07, r[1] * 1.88), .15, .05); x.fill(); });
     }));
 
+    add('database', fromCanvas(S, S, .3, (x) => {
+      for (let i = 0; i < 3; i++) {
+        const y = .5 - i * .52;
+        x.beginPath(); x.ellipse(u(0), uy(y), len(.74), len(.2), 0, 0, 6.2832); x.fill();
+        x.fillRect(u(-.74), uy(y), len(1.48), len(.26));
+        x.beginPath(); x.ellipse(u(0), uy(y - .26), len(.74), len(.2), 0, 0, 6.2832); x.fill();
+        x.globalCompositeOperation = 'destination-out'; x.lineWidth = len(.035);
+        x.beginPath(); x.ellipse(u(0), uy(y), len(.74), len(.2), 0, 0, Math.PI); x.stroke();
+        x.globalCompositeOperation = 'source-over';
+      }
+    }));
+
+    add('spark', fromCanvas(S, S, .2, (x) => {
+      const star = (cx, cy, R) => { x.beginPath(); for (let k = 0; k < 8; k++) { const a = k * Math.PI / 4 + Math.PI / 2, q = k % 2 ? R * .24 : R; x[k ? 'lineTo' : 'moveTo'](u(cx) + Math.cos(a) * len(q), uy(cy) - Math.sin(a) * len(q)); } x.closePath(); x.fill(); };
+      star(-.12, -.08, .82); star(.66, .62, .3); star(.6, -.66, .2);
+    }));
+
+    add('cloudblocks', fromCanvas(S, S, .2, (x) => {
+      [[-.38, .12, .36], [.08, .34, .46], [.52, .1, .32]].forEach((c) => { x.beginPath(); x.arc(u(c[0]), uy(c[1]), len(c[2]), 0, 6.2832); x.fill(); });
+      rr(x, -.74, -.24, 1.58, .4, .18); x.fill();
+      x.globalCompositeOperation = 'destination-out';
+      [.2, 0].forEach((y) => { rr(x, -.4, y - .05, .8, .1, .05); x.fill(); });
+      x.globalCompositeOperation = 'source-over';
+      [-.5, 0, .5].forEach((cx) => { rr(x, cx - .17, -.86, .34, .3, .05); x.fill(); x.fillRect(u(cx - .02), uy(-.3), len(.04), len(.28)); });
+    }));
+
+    add('pin', fromCanvas(S, S, .22, (x) => {
+      x.beginPath(); x.arc(u(0), uy(.3), len(.58), Math.PI * .86, Math.PI * .14); x.lineTo(u(0), uy(-.92)); x.closePath(); x.fill();
+      x.globalCompositeOperation = 'destination-out'; x.beginPath(); x.arc(u(0), uy(.32), len(.23), 0, 6.2832); x.fill();
+    }));
+
+    add('people', fromCanvas(S, S, .22, (x) => {
+      const person = (cx, s) => {
+        x.beginPath(); x.arc(u(cx), uy(.18 * s + .12), len(.24 * s), 0, 6.2832); x.fill();
+        x.beginPath(); x.ellipse(u(cx), uy(-.62), len(.42 * s), len(.52 * s), 0, Math.PI, 0); x.fill();
+      };
+      person(-.62, .72); person(.62, .72); person(0, 1);
+    }));
+
     add('knot', analytic(() => {
       const t = rnd() * 6.2832, r = 2 + Math.cos(3 * t), o = onSphere(.07 * Math.sqrt(rnd()));
       return [r * Math.cos(2 * t) * .3 + o[0], r * Math.sin(2 * t) * .3 + o[1], Math.sin(3 * t) * .32 + o[2]];
