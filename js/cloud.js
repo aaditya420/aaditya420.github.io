@@ -8,7 +8,7 @@ AV.createCloud = function (canvas, N) {
 
   const VS = `
     attribute vec3 aA, aB, aS;
-    uniform float uMix, uTime, uScale, uSize, uAspect, uChaos, uRy, uRx;
+    uniform float uMix, uTime, uScale, uSize, uAspect, uChaos, uRy, uRx, uKick;
     uniform vec2 uOff, uPtr;
     varying float vAlpha, vAcc;
     mat2 rot(float a){ float c = cos(a), s = sin(a); return mat2(c, -s, s, c); }
@@ -18,6 +18,8 @@ AV.createCloud = function (canvas, N) {
       float burst = sin(e * 3.14159);
       p += vec3(sin(aS.y * 40. + aS.x * 9.), cos(aS.z * 37. + 1.3), sin(aS.x * 53. + aS.y * 11.)) * burst * uChaos;
       p.xy = rot(burst * (aS.z - .5) * 3.2) * p.xy;
+      // a shockwave when the viewer presses play or jumps: every point is thrown outward, then springs back
+      p += vec3(normalize(p.xy + vec2(1e-4)) * (.2 + aS.y * .8), (aS.z - .5) * 1.4) * uKick * .62;
       p += .011 * vec3(sin(uTime * 1.1 + aS.x * 60.), cos(uTime * .9 + aS.y * 60.), sin(uTime * 1.3 + aS.z * 60.));
       p.xz = rot(uRy) * p.xz; p.yz = rot(uRx) * p.yz;
       float persp = 1. / (1. - p.z * .3);
@@ -43,7 +45,7 @@ AV.createCloud = function (canvas, N) {
   gl.linkProgram(prog);
   if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) return null;
   gl.useProgram(prog);
-  const U = {}; ['uMix', 'uTime', 'uScale', 'uSize', 'uAspect', 'uChaos', 'uRy', 'uRx', 'uOff', 'uPtr', 'uCol', 'uAcc'].forEach((n) => { U[n] = gl.getUniformLocation(prog, n); });
+  const U = {}; ['uMix', 'uTime', 'uScale', 'uSize', 'uAspect', 'uChaos', 'uRy', 'uRx', 'uKick', 'uOff', 'uPtr', 'uCol', 'uAcc'].forEach((n) => { U[n] = gl.getUniformLocation(prog, n); });
   const aA = gl.getAttribLocation(prog, 'aA'), aB = gl.getAttribLocation(prog, 'aB'), aS = gl.getAttribLocation(prog, 'aS');
 
   // deterministic random so the shapes look the same on every visit
@@ -228,7 +230,7 @@ AV.createCloud = function (canvas, N) {
     gl.bindBuffer(gl.ARRAY_BUFFER, shapes[s.to]); gl.vertexAttribPointer(aB, 3, gl.FLOAT, false, 0, 0);
     gl.uniform1f(U.uMix, s.mix); gl.uniform1f(U.uTime, s.time); gl.uniform1f(U.uScale, s.scale);
     gl.uniform1f(U.uSize, s.size * dpr); gl.uniform1f(U.uAspect, W / H); gl.uniform1f(U.uChaos, s.chaos);
-    gl.uniform1f(U.uRy, s.ry); gl.uniform1f(U.uRx, s.rx);
+    gl.uniform1f(U.uRy, s.ry); gl.uniform1f(U.uRx, s.rx); gl.uniform1f(U.uKick, s.kick || 0);
     gl.uniform2f(U.uOff, s.off[0], s.off[1]); gl.uniform2f(U.uPtr, s.ptr[0], s.ptr[1]);
     gl.uniform3f(U.uCol, s.col[0], s.col[1], s.col[2]); gl.uniform3f(U.uAcc, s.acc[0], s.acc[1], s.acc[2]);
     gl.drawArrays(gl.POINTS, 0, N);

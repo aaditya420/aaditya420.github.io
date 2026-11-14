@@ -20,7 +20,7 @@
 <div class="stage" id="stage">
 
   <!-- 0 · title -->
-  <section class="scene on-ink" data-dur="1.3" data-shape="name" data-ink="bone" data-accent="persimmon" data-place="name">
+  <section class="scene on-ink" data-title="Hello" data-dur="1.1" data-shape="name" data-ink="bone" data-accent="persimmon" data-place="name">
     <h1 class="sr-only">Aaditya Verma, Expert Engineer</h1>
     <div class="title-card">
       <p class="whisper tc-role">Expert Engineer</p>
@@ -30,13 +30,14 @@
           <text class="badge-ring"><textPath href="#ring" textLength="486">press play ✦ or just scroll ✦ a one-minute film ✦</textPath></text>
           <circle cx="100" cy="100" r="52" class="badge-disc"/>
           <path d="M88 76 L128 100 L88 124 Z" class="badge-tri"/>
+          <g class="badge-bars"><rect x="83" y="78" width="12" height="44" rx="2.5"/><rect x="105" y="78" width="12" height="44" rx="2.5"/></g>
         </svg>
       </button>
     </div>
   </section>
 
   <!-- 1 · hook -->
-  <section class="scene on-bone" data-dur="2.2" data-wipe="circle" data-shape="sphere" data-ink="ink" data-accent="persimmon" data-place="side" data-spin="2.6">
+  <section class="scene on-bone" data-title="AI that ships" data-dur="2.2" data-wipe="circle" data-shape="sphere" data-ink="ink" data-accent="persimmon" data-place="side" data-spin="2.6">
     <div class="copy">
       <h2 class="stack">
         <span class="shout" data-a=".08,.3" data-split="w">I build AI</span>
@@ -47,29 +48,31 @@
   </section>
 
   <!-- 2 · career: what I was responsible for, and with what -->
-  <section class="scene on-persimmon" data-dur="4.6" data-wipe="dot" data-origin="#dot" data-shape="database" data-stops=".2:graph|.3:spark|.4:browser|.6:cloudblocks|.7:trace" data-ink="ink" data-accent="bone" data-place="side" data-spin=".5">
+  <section class="scene on-persimmon" data-title="Career" data-dur="4.6" data-wipe="dot" data-origin="#dot" data-beats=".15,.241,.342,.442,.642,.89" data-shape="database" data-stops=".2:graph|.3:spark|.4:browser|.6:cloudblocks|.7:trace" data-ink="ink" data-accent="bone" data-place="side" data-spin=".5">
     <div class="copy">
       <p class="whisper" data-a=".03,.1" data-fx="up">at Fidelity International</p>
       <p class="shout year" style="--fs:1.9;--fsm:1.7" data-a=".05,.12" data-fx="up"><span data-odo="2020,2026" data-a=".1,.702" data-lin data-step aria-label="2020 to 2026"></span></p>
-      <h2 class="shout role" style="--fs:.62;--fsm:.52" data-a=".1,.8" data-lin data-roles="2020:Kept the data moving|2021:Started building products|2022:Put GenAI into production|2023:Scaled it company-wide|2025:Owned systems end to end|2026:Building for every engineer" aria-label="2020, kept the data moving. 2021, started building products. 2022, put generative AI into production. 2023, scaled it company-wide. 2025, owned systems end to end. 2026, building for every engineer."></h2>
-      <p class="whisper tagline" data-a=".1,.8" data-lin data-roles="2020:graduate programmer|2021:programmer|2022:analyst programmer|2023:senior analyst programmer|2025:technical specialist|2026:expert engineer" aria-label="Graduate Programmer, Programmer, Analyst Programmer, Senior Analyst Programmer, Technical Specialist, Expert Engineer"></p>
-      <p class="stackline" data-a=".1,.8" data-lin data-roles="2020:PL/SQL + Python + Control-M|2021:Knowledge graphs + spaCy + Neptune|2022:FILxGPT + AWS + Terraform|2023:FILBrowserGPT + React + fine-tuning|2025:AWS + Snowflake + RAG + Genesys|2026:OpenTelemetry + ECS + agent skills" aria-label="Stack over the years: PL/SQL, Python and Control-M; knowledge graphs, spaCy and Neptune; FILxGPT, AWS and Terraform; FILBrowserGPT, React and fine-tuning; AWS, Snowflake, RAG and Genesys; OpenTelemetry, ECS and agent skills."></p>
-      <p class="whisper" style="--fs:1.05" data-a=".84,.94" data-split="w">from keeping data moving to <span class="mark" data-a=".9,.98">building the platform.</span></p>
+      <div class="roles" data-a=".07,.14" data-fx="up">
+        <h2 class="shout role" style="--fs:.62;--fsm:.52" data-a=".1,.8" data-lin data-roles="2020:Kept the data moving|2021:Started building products|2022:Put GenAI into production|2023:Scaled it company-wide|2025:Owned systems end to end|2026:Building for every engineer" aria-label="2020, kept the data moving. 2021, started building products. 2022, put generative AI into production. 2023, scaled it company-wide. 2025, owned systems end to end. 2026, building for every engineer."></h2>
+        <p class="whisper tagline" data-a=".1,.8" data-lin data-roles="2020:graduate programmer|2021:programmer|2022:analyst programmer|2023:senior analyst programmer|2025:technical specialist|2026:expert engineer" aria-label="Graduate Programmer, Programmer, Analyst Programmer, Senior Analyst Programmer, Technical Specialist, Expert Engineer"></p>
+        <p class="stackline" data-chips data-a=".1,.8" data-lin data-roles="2020:PL/SQL + Python + Control-M|2021:Knowledge graphs + spaCy + Neptune|2022:FILxGPT + AWS + Terraform|2023:FILBrowserGPT + React + fine-tuning|2025:AWS + Snowflake + RAG + Genesys|2026:OpenTelemetry + ECS + agent skills" aria-label="Stack over the years: PL/SQL, Python and Control-M; knowledge graphs, spaCy and Neptune; FILxGPT, AWS and Terraform; FILBrowserGPT, React and fine-tuning; AWS, Snowflake, RAG and Genesys; OpenTelemetry, ECS and agent skills."></p>
+      </div>
+      <p class="whisper" style="--fs:1.05" data-a=".75,.83" data-split="w">from keeping data moving to <span class="mark" data-a=".8,.87">building the platform.</span></p>
     </div>
   </section>
 
   <!-- 3 · FILClientServicesGPT -->
-  <section class="scene on-ink" data-dur="1.8" data-wipe="blinds" data-shape="wave" data-ink="butter" data-accent="persimmon" data-place="side" data-spin=".7">
+  <section class="scene on-ink" data-title="5,000 calls" data-dur="1.8" data-wipe="blinds" data-shape="wave" data-ink="butter" data-accent="persimmon" data-place="side" data-spin=".7">
     <div class="copy">
       <p class="shout num" style="--fs:2;--fsm:1.7" data-a=".08,.18" data-fx="up"><span data-odo="0,5000" data-sep data-a=".1,.55" aria-label="5,000"></span><i class="plus">+</i></p>
       <p class="whisper" style="--fs:1.25" data-a=".42,.6" data-split="w">calls a month, analysed by</p>
-      <h2 class="shout" style="--fs:.56;--fsm:.4" data-a=".56,.76" data-fx="wide">FILClientServicesGPT</h2>
+      <h2 class="shout" style="--fs:.5;--fsm:.4" data-a=".56,.76" data-fx="wide">FILClientServicesGPT</h2>
       <p class="whisper tagline" data-a=".7,.86" data-split="w">and I <span class="mark" data-a=".78,.92">own it end to end.</span></p>
     </div>
   </section>
 
   <!-- 4 · Freya -->
-  <section class="scene on-butter" data-dur="1.8" data-wipe="split" data-shape="bubble" data-ink="ink" data-accent="persimmon" data-place="side" data-spin=".7">
+  <section class="scene on-butter" data-title="Freya" data-dur="1.8" data-wipe="split" data-shape="bubble" data-ink="ink" data-accent="persimmon" data-place="side" data-spin=".7">
     <div class="copy">
       <h2 class="whisper freya" style="--fs:4.2;--fsm:3.4" data-a=".1,.42" data-split="c" data-fx="drop">Freya</h2>
       <p class="shout" style="--fs:.52;--fsm:.44" data-a=".4,.58" data-split="w">a public conversational AI.</p>
@@ -78,7 +81,7 @@
   </section>
 
   <!-- 5 · RRT -->
-  <section class="scene on-bottle" data-dur="1.8" data-wipe="up" data-shape="ring" data-ink="bone" data-accent="butter" data-place="side" data-spin=".8">
+  <section class="scene on-bottle" data-title="Less workload" data-dur="1.8" data-wipe="up" data-shape="ring" data-ink="bone" data-accent="butter" data-place="side" data-spin=".8">
     <div class="copy">
       <p class="shout num" style="--fs:2.4;--fsm:2" data-a=".08,.18" data-fx="up"><i class="minus">−</i><span data-odo="0,75" data-a=".1,.5" aria-label="75"></span><i class="pct">%</i></p>
       <p class="shout" style="--fs:.8;--fsm:.7" data-a=".42,.6" data-split="w">workload</p>
@@ -87,7 +90,7 @@
   </section>
 
   <!-- 6 · embedded with teams -->
-  <section class="scene on-bone" data-dur="2.4" data-wipe="diamond" data-shape="pin" data-ink="persimmon" data-accent="ink" data-place="side" data-spin=".8">
+  <section class="scene on-bone" data-title="Embedded" data-dur="2.4" data-wipe="diamond" data-shape="pin" data-ink="persimmon" data-accent="ink" data-place="side" data-spin=".8">
     <div class="copy">
       <p class="whisper" style="--fs:1.25" data-a=".06,.2" data-split="w">I build next to the people with the problem.</p>
       <h2 class="sr-only">Teams I have built with</h2>
@@ -101,7 +104,7 @@
   </section>
 
   <!-- 7 · leading and teaching -->
-  <section class="scene on-persimmon" data-dur="2.2" data-wipe="slash" data-shape="people" data-ink="ink" data-accent="bone" data-place="side" data-spin=".7">
+  <section class="scene on-persimmon" data-title="Leading" data-dur="2.2" data-wipe="slash" data-shape="people" data-ink="ink" data-accent="bone" data-place="side" data-spin=".7">
     <div class="copy">
       <p class="whisper" style="--fs:1.25" data-a=".06,.2" data-fx="up">and I bring people with me.</p>
       <div class="proj" data-a=".16,.36" data-fx="slide">
@@ -117,7 +120,7 @@
   </section>
 
   <!-- 8 · stack -->
-  <section class="scene on-bottle" data-dur="2" data-wipe="iris" data-shape="knot" data-ink="butter" data-accent="bone" data-place="center" data-spin="3.2">
+  <section class="scene on-bottle" data-title="Toolkit" data-dur="2" data-wipe="iris" data-shape="knot" data-ink="butter" data-accent="bone" data-place="center" data-spin="3.2">
     <h2 class="sr-only">The toolkit</h2>
     <div class="reel" aria-label="Terraform, AWS, Docker, Kubernetes, Python, React, Snowflake, Neptune, LLMs, RAG, fine-tuning, Whisper, GitHub Actions, OpenTelemetry, SQL, MongoDB">
       <p class="reel-row" style="--dir:-1;--sp:70" aria-hidden="true"><b>Terraform</b><i>AWS</i><b>Docker</b><i>Kubernetes</i><b>Terraform</b><i>AWS</i><b>Docker</b><i>Kubernetes</i></p>
@@ -128,7 +131,7 @@
   </section>
 
   <!-- 9 · side projects -->
-  <section class="scene on-bone" data-dur="2.2" data-wipe="shutter" data-shape="saturn" data-ink="persimmon" data-accent="ink" data-place="side" data-spin="2.4">
+  <section class="scene on-bone" data-title="After hours" data-dur="2.2" data-wipe="shutter" data-shape="saturn" data-ink="persimmon" data-accent="ink" data-place="side" data-spin="2.4">
     <div class="copy">
       <p class="whisper" style="--fs:1.25" data-a=".06,.2" data-fx="up">and after hours,</p>
       <a class="proj link" href="https://github.com/aaditya420/dayglow" target="_blank" rel="noopener" data-a=".16,.36" data-fx="slide">
@@ -144,7 +147,7 @@
   </section>
 
   <!-- 10 · end card -->
-  <section class="scene on-ink" data-dur="1.9" data-wipe="circle" data-shape="mono" data-ink="bone" data-accent="persimmon" data-place="top">
+  <section class="scene on-ink" data-title="Say hello" data-dur="1.9" data-wipe="circle" data-shape="mono" data-ink="bone" data-accent="persimmon" data-place="top">
     <div class="copy end">
       <h2 class="stack">
         <span class="shout" style="--fs:1.25;--fsm:1.1" data-a=".1,.3" data-split="w">Let's build</span>
@@ -163,19 +166,45 @@
   <canvas id="cloud" aria-hidden="true"></canvas>
   <div class="grain" aria-hidden="true"></div>
 
+  <div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Chapters" hidden>
+    <ol class="menu-list" id="menu-list"></ol>
+    <div class="menu-foot">
+      <a class="pill solid" href="mailto:aadityaverma1998@gmail.com">Email me</a>
+      <a class="pill" href="Aaditya_Verma_Resume.pdf" target="_blank" rel="noopener">Résumé</a>
+      <a class="pill" href="https://www.linkedin.com/in/aadityaverma" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="pill" href="https://github.com/aaditya420" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+
+  <nav class="bar" id="bar" aria-label="Chapters timeline"></nav>
   <header class="chrome-top">
-    <a class="wordmark" href="#" id="home">Aaditya Verma</a>
-    <a class="pill" href="Aaditya_Verma_Resume.pdf" download>Résumé</a>
+    <a class="wordmark" href="#" id="home" aria-label="Aaditya Verma, back to the start">Aaditya Verma</a>
+    <div class="top-actions">
+      <button class="pill ghost" id="menu-btn" type="button" aria-expanded="false" aria-controls="menu"><span class="burger" aria-hidden="true"><i></i><i></i></span><span class="mb-label">Chapters</span></button>
+      <a class="pill" href="Aaditya_Verma_Resume.pdf" download>Résumé</a>
+    </div>
   </header>
 
-  <div class="player" role="group" aria-label="Film controls">
-    <button class="pp" id="pp" type="button" aria-label="Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="i-play" d="M8 5 L19 12 L8 19 Z"/><path class="i-pause" d="M7 5 H10.5 V19 H7 Z M13.5 5 H17 V19 H13.5 Z"/></svg></button>
-    <div class="seek" id="seek" role="slider" aria-label="Position in the film" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0"><i></i></div>
-    <span class="time" id="time" aria-hidden="true">0:00</span>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <div class="dock" id="dock" role="group" aria-label="Film controls">
+    <button class="pp" id="pp" type="button" aria-label="Play the film">
+      <svg class="pp-ring" viewBox="0 0 60 60" aria-hidden="true"><circle cx="30" cy="30" r="28"/><circle class="pp-fill" cx="30" cy="30" r="28" pathLength="100"/></svg>
+      <span class="pp-ic" aria-hidden="true"><i></i><i></i></span>
+      <svg class="pp-replay" viewBox="0 0 24 24" aria-hidden="true"><path d="M5.5 9.5A7 7 0 1 1 5 14"/><path d="M4.5 4.5v5h5"/></svg>
+    </button>
+    <div class="dock-meta" aria-hidden="true">
+      <span class="dock-chap" id="chap"><span>Hello</span></span>
+      <span class="dock-time" id="time">0:00</span>
+    </div>
+    <button class="nav" id="prev" type="button" aria-label="Previous moment"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 6 8.5 12l6 6"/></svg></button>
+    <button class="nav" id="next" type="button" aria-label="Next moment"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9.5 6 6 6-6 6"/></svg></button>
   </div>
 </div>
 
 <div class="track" id="track" aria-hidden="true"></div>
+<div class="loader" aria-hidden="true"><i></i></div>
+<div class="cursor" id="cursor" aria-hidden="true"></div>
 
 <noscript><p style="padding:2rem;font:1.2rem/1.5 Georgia,serif;color:#EDE7DA;background:#141311">Aaditya Verma, Expert Engineer at Fidelity International. This page is a scroll-driven film and needs JavaScript. <a style="color:#F3C846" href="Aaditya_Verma_Resume.pdf">Download the résumé</a> or email aadityaverma1998@gmail.com.</p></noscript>
 
